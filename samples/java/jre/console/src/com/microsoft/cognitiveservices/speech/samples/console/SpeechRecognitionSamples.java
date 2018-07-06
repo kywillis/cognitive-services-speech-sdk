@@ -75,29 +75,9 @@ public class SpeechRecognitionSamples {
     
 
     // Speech recognition from file.
-    public static void recognitionWithFileAsync() throws InterruptedException, ExecutionException {
+    public static void recognitionWithFileAsyncTODORemove() throws InterruptedException, ExecutionException {
         // <recognitionFromFile>
-        // Creates an instance of a speech factory with specified
-        // subscription key and service region. Replace with your own subscription key
-        // and service region (e.g., "westus").
-        SpeechFactory factory = SpeechFactory.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
-
-        // Creates a speech recognizer using file as audio input.
-        // Replace with your own audio file name.
-        SpeechRecognizer recognizer = factory.createSpeechRecognizerWithFileInput("YourAudioFile.wav");
-        {
-            // Starts recognition. It returns when the first utterance has been recognized.
-            SpeechRecognitionResult result = recognizer.recognizeAsync().get();
-
-            // Checks result.
-            if (result.getReason() != RecognitionStatus.Recognized) {
-                System.out.println("There was an error. Status:" + result.getReason().toString() + "}, Reason:" + result.getErrorDetails());
-            }
-            else {
-                System.out.println("We recognized: " + result.getText());
-            }
-        }
-        recognizer.close();
+        // TODO remove
         // </recognitionFromFile>
     }
 
@@ -137,7 +117,8 @@ public class SpeechRecognitionSamples {
 
     // Speech recognition with events
     public static void continuousRecognitionAsync() throws InterruptedException, ExecutionException, IOException {
-        // <recognitionContinuous>
+        // <recognitionContinuousWithFile>
+        // TODO fix things
         // Creates an instance of a speech factory with specified
         // subscription key and service region. Replace with your own subscription key
         // and service region (e.g., "westus").
@@ -145,6 +126,7 @@ public class SpeechRecognitionSamples {
 
         // Creates a speech recognizer using microphone as audio input.
         SpeechRecognizer recognizer = factory.createSpeechRecognizer();
+        // TODO needs be from file and rename
         {
             // Subscribes to events.
             recognizer.IntermediateResultReceived.addEventListener((s, e) -> {
@@ -179,7 +161,7 @@ public class SpeechRecognitionSamples {
 
             recognizer.stopContinuousRecognitionAsync().get();
         }
-        // </recognitionContinuous>
+        // </recognitionContinuousWithFile>
     }
 
     // <recognitionAudioStream>
