@@ -85,40 +85,6 @@ public class IntentRecognitionSamples {
         // </IntentRecognitionWithLanguage>
     }
 
-    // Intent recognition using file input
-    public static void intentRecognitionWithFile() throws InterruptedException, ExecutionException
-    {
-        // <IntentRecognitionWithFile>
-        // Creates an instance of a speech factory with specified
-        // subscription key and service region. Replace with your own subscription key
-        // and service region (e.g., "westus").
-        SpeechFactory factory = SpeechFactory.fromSubscription("YourLuisSubscriptionKey", "YourLuisServiceRegion");
-
-        // Creates an intent recognizer using file as audio input.
-        // Replace with your own audio file name.
-        IntentRecognizer recognizer = factory.createIntentRecognizerWithFileInput("YourAudioFile.wav");
-
-        // Creates a language understanding model using the app id, and adds specific intents from your model
-        LanguageUnderstandingModel model = LanguageUnderstandingModel.fromAppId("YourLuisAppId");
-        recognizer.addIntent("id1", model, "YourLuisIntentName1");
-        recognizer.addIntent("id2", model, "YourLuisIntentName2");
-        recognizer.addIntent("any-IntentId-here", model, "YourLuisIntentName3");
-
-        // Starts recognition. It returns when the first utterance has been recognized.
-        IntentRecognitionResult result = recognizer.recognizeAsync().get();
-
-        // Checks result.
-        if (result.getReason() != RecognitionStatus.Recognized) {
-            System.out.println("There was an error, reason " + result.getReason() + "-" + result.getErrorDetails());
-        }
-        else {
-            System.out.println("We recognized: " + result.getText());
-            System.out.println("    Intent Id: " + result.getIntentId());
-            System.out.println("    LUIS Json: " + result.getJson());
-        }
-        // </IntentRecognitionWithFile>
-    }
-
     // Continuous intent recognition.
     public static void intentContinuousRecognitionWithFile() throws InterruptedException, ExecutionException, IOException
     {
