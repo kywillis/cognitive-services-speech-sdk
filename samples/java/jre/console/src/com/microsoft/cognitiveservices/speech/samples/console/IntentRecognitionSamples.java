@@ -120,15 +120,16 @@ public class IntentRecognitionSamples {
     }
 
     // Continuous intent recognition.
-    public static void intentContinuousRecognitionUsingEvents() throws InterruptedException, ExecutionException, IOException
+    public static void intentContinuousRecognitionWithFile() throws InterruptedException, ExecutionException, IOException
     {
-        // <IntentContinuousRecognitionUsingEvents>
+        // <IntentContinuousRecognitionWithFile>
         // Creates an instance of a speech factory with specified
         // subscription key and service region. Replace with your own subscription key
         // and service region (e.g., "westus").
         SpeechFactory factory = SpeechFactory.fromSubscription("YourLuisSubscriptionKey", "YourLuisServiceRegion");
 
-        // Creates a intent recognizer using microphone as audio input.
+        // Creates an intent recognizer using file as audio input.
+        // Replace with your own audio file name.
         IntentRecognizer recognizer = factory.createIntentRecognizerWithFileInput("YourAudioFile.wav");
 
         // Creates a language understanding model using the app id, and adds specific intents from your model
@@ -160,7 +161,7 @@ public class IntentRecognitionSamples {
 
         // Stops recognition.
         recognizer.stopContinuousRecognitionAsync().get();
-        // </IntentContinuousRecognitionUsingEvents>
+        // </IntentContinuousRecognitionWithFile>
     }
 
 }

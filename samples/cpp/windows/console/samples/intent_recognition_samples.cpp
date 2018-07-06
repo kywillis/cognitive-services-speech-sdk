@@ -160,7 +160,7 @@ void IntentContinuousRecognitionWithFile()
     // and service region (e.g., "westus").
     auto factory = SpeechFactory::FromSubscription(L"YourLuisSubscriptionKey", L"YourLuisServiceRegion");
 
-    // Creates a intent recognizer using file as audio input.
+    // Creates an intent recognizer using file as audio input.
     // Replace with your own audio file name.
     auto recognizer = factory->CreateIntentRecognizerWithFileInput(L"YourAudioFile.wav");
 
