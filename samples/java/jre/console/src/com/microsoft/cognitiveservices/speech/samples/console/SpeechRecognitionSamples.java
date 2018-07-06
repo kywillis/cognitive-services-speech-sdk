@@ -74,13 +74,6 @@ public class SpeechRecognitionSamples {
     }
     
 
-    // Speech recognition from file.
-    public static void recognitionWithFileAsyncTODORemove() throws InterruptedException, ExecutionException {
-        // <recognitionFromFile>
-        // TODO remove
-        // </recognitionFromFile>
-    }
-
     // Speech recognition using a customized model.
     public static void recognitionUsingCustomizedModelAsync() throws InterruptedException, ExecutionException {
         // <recognitionCustomized>
@@ -115,18 +108,17 @@ public class SpeechRecognitionSamples {
     }
 
 
-    // Speech recognition with events
-    public static void continuousRecognitionAsync() throws InterruptedException, ExecutionException, IOException {
+    // Speech recognition with events from file
+    public static void continuousRecognitionWithFileAsync() throws InterruptedException, ExecutionException, IOException {
         // <recognitionContinuousWithFile>
-        // TODO fix things
         // Creates an instance of a speech factory with specified
         // subscription key and service region. Replace with your own subscription key
         // and service region (e.g., "westus").
         SpeechFactory factory = SpeechFactory.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
 
-        // Creates a speech recognizer using microphone as audio input.
-        SpeechRecognizer recognizer = factory.createSpeechRecognizer();
-        // TODO needs be from file and rename
+        // Creates a speech recognizer using file as audio input.
+        // Replace with your own audio file name.
+        SpeechRecognizer recognizer = factory.createSpeechRecognizerWithFileInput("YourAudioFile.wav");
         {
             // Subscribes to events.
             recognizer.IntermediateResultReceived.addEventListener((s, e) -> {
