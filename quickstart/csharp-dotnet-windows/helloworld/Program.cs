@@ -5,6 +5,7 @@
 
 // <code>
 using System;
+using System.Threading.Tasks;
 using Microsoft.CognitiveServices.Speech;
 
 namespace helloworld
