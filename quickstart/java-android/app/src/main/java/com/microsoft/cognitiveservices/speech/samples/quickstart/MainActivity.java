@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     // Replace below with your own service region (e.g., "westus").
     private static String serviceRegion = "YourServiceRegion";
 
+    // <onCreate>
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,9 +38,11 @@ public class MainActivity extends AppCompatActivity {
         int requestCode = 5; // unique code for the permission request
         ActivityCompat.requestPermissions(MainActivity.this, new String[]{RECORD_AUDIO, INTERNET}, requestCode);
     }
+    // </onCreate>
 
+    // <onSpeechButtonClicked>
     public void onSpeechButtonClicked(View v) {
-        TextView txt = (TextView) this.findViewById(R.id.hello);
+        TextView txt = (TextView) this.findViewById(R.id.hello); // 'hello' is the ID of your text view
 
         try {
             // Note: required once after app start.
@@ -76,4 +79,5 @@ public class MainActivity extends AppCompatActivity {
             assert(false);
         }
     }
+    // </onSpeechButtonClicked>
 }
